@@ -33,15 +33,11 @@ public class Settings_UIActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent();
-                intent.putExtra(DB_CHANGE, dbChange);
-                setResult(Activity.RESULT_OK, intent);
-                finish();
-                break;
-            default:
-                break;
+        if (menuItem.getItemId() == android.R.id.home) {
+            Intent intent = new Intent();
+            intent.putExtra(DB_CHANGE, dbChange);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
         }
         return true;
     }

@@ -1410,13 +1410,10 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 int action = event.getAction();
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        // Disallow NestedScrollView to intercept touch events.
-                        if (listView.canScrollVertically(-1)) {
-                            v.getParent().requestDisallowInterceptTouchEvent(true);
-                        }
-                        break;
+                if (action == MotionEvent.ACTION_DOWN) {// Disallow NestedScrollView to intercept touch events.
+                    if (listView.canScrollVertically(-1)) {
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                    }
                 }
                 // Handle ListView touch events.
                 v.onTouchEvent(event);
@@ -1429,13 +1426,10 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 int action = event.getAction();
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        // Disallow NestedScrollView to intercept touch events.
-                        if (gridView.canScrollVertically(-1)) {
-                            v.getParent().requestDisallowInterceptTouchEvent(true);
-                        }
-                        break;
+                if (action == MotionEvent.ACTION_DOWN) {// Disallow NestedScrollView to intercept touch events.
+                    if (gridView.canScrollVertically(-1)) {
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                    }
                 }
                 // Handle ListView touch events.
                 v.onTouchEvent(event);

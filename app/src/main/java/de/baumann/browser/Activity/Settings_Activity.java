@@ -42,12 +42,8 @@ public class Settings_Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                break;
+        if (menuItem.getItemId() == android.R.id.home) {
+            finish();
         }
 
         return true;
