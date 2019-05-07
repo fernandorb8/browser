@@ -27,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.Buffer;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -275,9 +276,7 @@ public class BrowserUnit {
 
         String filename = context.getString(R.string.export_bookmarks);
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "browser_backup//" + filename + SUFFIX_TXT);
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 line = line.trim();
@@ -285,16 +284,9 @@ public class BrowserUnit {
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
                 sp.edit().putString("saved_key", line).apply();
             }
-            reader.close();
 
         } catch (Exception e) {
             Log.w("Browser", "Error adding record", e);
-        } finally {
-            try{
-                reader.close();
-            }catch (IOException e){
-
-            }
         }
     }
 
@@ -323,9 +315,7 @@ public class BrowserUnit {
         action.close();
 
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "browser_backup//" + filename + SUFFIX_TXT);
-        BufferedWriter writer=null;
-        try {
-            writer = new BufferedWriter(new FileWriter(file, false));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, false))) {
             for (String domain : list) {
                 writer.write(domain);
                 writer.newLine();
@@ -334,12 +324,6 @@ public class BrowserUnit {
             return file.getAbsolutePath();
         } catch (Exception e) {
             return null;
-        }finally {
-            try{
-                writer.close();
-            }catch (IOException e){
-
-            }
         }
     }
 
@@ -350,11 +334,9 @@ public class BrowserUnit {
 
         AdBlock adBlock = new AdBlock(context);
         int count = 0;
-        BufferedReader reader=null;
-        try {
+        try (BufferedReader reader =  new BufferedReader(new FileReader(file))) {
             RecordAction action = new RecordAction(context);
             action.open(true);
-            reader = new BufferedReader(new FileReader(file));
             String line;
             while ((line = reader.readLine()) != null) {
                 if (!action.checkDomain(line)) {
@@ -362,16 +344,9 @@ public class BrowserUnit {
                     count++;
                 }
             }
-            reader.close();
             action.close();
         } catch (Exception e) {
             Log.w("Browser", "Error reading file", e);
-        }finally {
-            try{
-                reader.close();
-            }catch (IOException e){
-
-            }
         }
 
         return count;
@@ -384,11 +359,9 @@ public class BrowserUnit {
 
         Javascript js = new Javascript(context);
         int count = 0;
-        BufferedReader reader=null;
-        try {
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             RecordAction action = new RecordAction(context);
             action.open(true);
-            reader = new BufferedReader(new FileReader(file));
             String line;
             while ((line = reader.readLine()) != null) {
                 if (!action.checkDomainJS(line)) {
@@ -400,12 +373,6 @@ public class BrowserUnit {
             action.close();
         } catch (Exception e) {
             Log.w("Browser", "Error reading file", e);
-        }finally {
-            try{
-                reader.close();
-            }catch (IOException e ){
-
-            }
         }
 
         return count;
@@ -418,11 +385,9 @@ public class BrowserUnit {
 
         Cookie cookie = new Cookie(context);
         int count = 0;
-        BufferedReader reader=null;
-        try {
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             RecordAction action = new RecordAction(context);
             action.open(true);
-            reader = new BufferedReader(new FileReader(file));
             String line;
             while ((line = reader.readLine()) != null) {
                 if (!action.checkDomainCookie(line)) {
@@ -434,12 +399,6 @@ public class BrowserUnit {
             action.close();
         } catch (Exception e) {
             Log.w("Browser", "Error reading file", e);
-        }finally {
-            try{
-                reader.close();
-            }catch (IOException e){
-
-            }
         }
 
         return count;

@@ -29,7 +29,7 @@ import de.baumann.browser.Ninja.R;
  * Time: 12:31 PM
  */
 
-@SuppressWarnings({"WeakerAccess", "unchecked", "FieldCanBeLocal", "unused", "ConstantConditions"})
+@SuppressWarnings({"WeakerAccess", "FieldCanBeLocal", "unused"})
 public class DynamicGridView extends GridView {
     private static final int INVALID_ID = -1;
 
@@ -731,7 +731,6 @@ public class DynamicGridView extends GridView {
         }
     };
 
-    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private static class DynamicGridModification {
 
         private final List<Pair<Integer, Integer>> transitions;

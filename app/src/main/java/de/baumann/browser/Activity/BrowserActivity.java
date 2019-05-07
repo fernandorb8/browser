@@ -97,7 +97,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Random;
-import java.util.logging.Logger;
 
 import de.baumann.browser.Browser.AdBlock;
 import de.baumann.browser.Browser.AlbumController;
@@ -2577,7 +2576,6 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
             NotificationCompat.Action action_UN = new NotificationCompat.Action.Builder(R.drawable.icon_earth, getString(R.string.toast_titleConfirm_pasteUN), copyUN).build();
             NotificationCompat.Action action_PW = new NotificationCompat.Action.Builder(R.drawable.icon_earth, getString(R.string.toast_titleConfirm_pastePW), copyPW).build();
 
-            @SuppressWarnings("deprecation")
             Notification n  = builder
                     .setCategory(Notification.CATEGORY_MESSAGE)
                     .setSmallIcon(R.drawable.ic_notification_ninja)

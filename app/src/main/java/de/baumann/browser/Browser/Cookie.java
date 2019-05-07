@@ -27,22 +27,14 @@ public class Cookie {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                BufferedReader reader=null;
                 AssetManager manager = context.getAssets();
-                try {
-                    reader = new BufferedReader(new InputStreamReader(manager.open(FILE)));
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(manager.open(FILE)))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         hostsCookie.add(line.toLowerCase(locale));
                     }
                 } catch (IOException i) {
                     Log.w("Browser", "Error loading hosts");
-                }finally {
-                    try{
-                        reader.close();
-                    }catch (IOException E){
-
-                    }
                 }
             }
         });

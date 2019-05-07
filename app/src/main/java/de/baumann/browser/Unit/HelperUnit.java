@@ -20,6 +20,7 @@
 package de.baumann.browser.Unit;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -38,7 +39,6 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.util.Linkify;
-import android.webkit.WebView;
 import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
@@ -46,7 +46,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
-import de.baumann.browser.Activity.BrowserActivity;
 import de.baumann.browser.Ninja.R;
 import de.baumann.browser.View.NinjaToast;
 
@@ -56,6 +55,7 @@ public class HelperUnit {
     private static final int REQUEST_CODE_ASK_PERMISSIONS_1 = 1234;
     private static SharedPreferences sp;
 
+    @SuppressLint("StaticFieldLeak")
     public static Context context;
 
     public static void grantPermissionsStorage(final Activity activity) {
@@ -211,7 +211,6 @@ public class HelperUnit {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             s = new SpannableString(Html.fromHtml(text,Html.FROM_HTML_MODE_LEGACY));
         } else {
-            //noinspection deprecation
             s = new SpannableString(Html.fromHtml(text));
         }
         Linkify.addLinks(s, Linkify.WEB_URLS);

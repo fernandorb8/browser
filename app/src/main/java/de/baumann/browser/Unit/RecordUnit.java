@@ -52,7 +52,7 @@ public class RecordUnit {
             + ")";
 
     private static Record holder;
-    public synchronized Record getHolder() {
+    public static synchronized Record getHolder() {
         return holder;
     }
     public synchronized static void setHolder(Record record) {

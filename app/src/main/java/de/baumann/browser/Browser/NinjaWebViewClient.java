@@ -186,7 +186,6 @@ public class NinjaWebViewClient extends WebViewClient {
         }
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
         final Uri uri = Uri.parse(url);
