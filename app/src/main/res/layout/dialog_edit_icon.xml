@@ -43,8 +43,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -70,8 +69,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -97,8 +95,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -124,8 +121,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -151,8 +147,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -187,8 +182,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -214,8 +208,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -241,8 +234,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -268,8 +260,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -295,8 +286,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/layout_margin_12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="horizontal"
-                    xmlns:android="http://schemas.android.com/apk/res/android">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
