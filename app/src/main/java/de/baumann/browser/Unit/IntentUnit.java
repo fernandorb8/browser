@@ -41,7 +41,7 @@ public class IntentUnit {
     }
 
     private static boolean clear = false;
-    public static boolean isClear() {
+    public synchronized boolean isClear() {
         return clear;
     }
     public synchronized static void setClear(boolean b) {

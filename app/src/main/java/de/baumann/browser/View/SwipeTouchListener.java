@@ -2,6 +2,7 @@ package de.baumann.browser.View;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -59,7 +60,7 @@ public class SwipeTouchListener implements OnTouchListener {
                 result = true;
 
             } catch (Exception exception) {
-                exception.printStackTrace();
+                Log.d("Error", "onFling: ");
             }
             return result;
         }
