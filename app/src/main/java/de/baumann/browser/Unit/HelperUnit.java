@@ -38,7 +38,6 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.util.Linkify;
-import android.webkit.WebView;
 import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
@@ -46,7 +45,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
-import de.baumann.browser.Activity.BrowserActivity;
 import de.baumann.browser.Ninja.R;
 import de.baumann.browser.View.NinjaToast;
 

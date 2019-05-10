@@ -130,7 +130,9 @@ public class NinjaWebViewClient extends WebViewClient {
                                 .setIcon(Icon.createWithResource(context, R.drawable.qc_history))
                                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                                 .build();
-                        shortcutManager.addDynamicShortcuts(Collections.singletonList(shortcut));
+                        if (shortcutManager!=null) {
+                            shortcutManager.addDynamicShortcuts(Collections.singletonList(shortcut));
+                        }
                         sp.edit().putInt("shortcut_number", 1).commit();
                     } else {
                         ShortcutInfo shortcut = new ShortcutInfo.Builder(context, "1")
@@ -139,7 +141,9 @@ public class NinjaWebViewClient extends WebViewClient {
                                 .setIcon(Icon.createWithResource(context, R.drawable.qc_history))
                                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                                 .build();
-                        shortcutManager.addDynamicShortcuts(Collections.singletonList(shortcut));
+                        if (shortcutManager!=null){
+                            shortcutManager.addDynamicShortcuts(Collections.singletonList(shortcut));
+                        }
                         sp.edit().putInt("shortcut_number", 0).commit();
                     }
                 } catch (Exception e) {
@@ -151,7 +155,9 @@ public class NinjaWebViewClient extends WebViewClient {
                                 .setIcon(Icon.createWithResource(context, R.drawable.qc_history))
                                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                                 .build();
-                        shortcutManager.updateShortcuts(Collections.singletonList(shortcut));
+                        if(shortcutManager!=null) {
+                            shortcutManager.updateShortcuts(Collections.singletonList(shortcut));
+                        }
                         sp.edit().putInt("shortcut_number", 1).commit();
                     } else {
                         ShortcutInfo shortcut = new ShortcutInfo.Builder(context, "1")
@@ -160,7 +166,9 @@ public class NinjaWebViewClient extends WebViewClient {
                                 .setIcon(Icon.createWithResource(context, R.drawable.qc_history))
                                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                                 .build();
-                        shortcutManager.updateShortcuts(Collections.singletonList(shortcut));
+                        if(shortcutManager!=null) {
+                            shortcutManager.updateShortcuts(Collections.singletonList(shortcut));
+                        }
                         sp.edit().putInt("shortcut_number", 0).commit();
                     }
                 }
@@ -178,7 +186,6 @@ public class NinjaWebViewClient extends WebViewClient {
         }
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
         final Uri uri = Uri.parse(url);

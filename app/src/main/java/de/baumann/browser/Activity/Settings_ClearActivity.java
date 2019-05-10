@@ -91,7 +91,6 @@ public class Settings_ClearActivity extends AppCompatActivity {
         TextView textView = dialogView.findViewById(R.id.dialog_text);
         textView.setText(this.getString(R.string.toast_wait_a_minute));
         dialog.setContentView(dialogView);
-        //noinspection ConstantConditions
         dialog.show();
 
         if (clearCache) {

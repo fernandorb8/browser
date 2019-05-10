@@ -10,6 +10,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.support.design.widget.BottomSheetDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,6 +33,8 @@ import de.baumann.browser.Task.ImportWhitelistCookieTask;
 import de.baumann.browser.Task.ImportWhitelistJSTask;
 import de.baumann.browser.Unit.BrowserUnit;
 import de.baumann.browser.View.NinjaToast;
+
+import static android.content.ContentValues.TAG;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class Fragment_settings_data extends PreferenceFragment {
@@ -260,7 +263,7 @@ public class Fragment_settings_data extends PreferenceFragment {
                             }
 
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            Log.d(TAG, "context");
                         }
                     }
                 });
@@ -307,7 +310,7 @@ public class Fragment_settings_data extends PreferenceFragment {
                             }
 
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            Log.d(TAG, "context");
                         }
                     }
                 });
@@ -342,7 +345,7 @@ public class Fragment_settings_data extends PreferenceFragment {
                         backupDir.mkdirs();
                         noMedia.createNewFile();
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Log.d(TAG, "context");
                     }
                 }
             }
@@ -352,8 +355,7 @@ public class Fragment_settings_data extends PreferenceFragment {
                     backupDir.mkdirs();
                     noMedia.createNewFile();
                 } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                    Log.d(TAG, "context");                }
             }
         }
     }
@@ -402,9 +404,21 @@ public class Fragment_settings_data extends PreferenceFragment {
             if (directory != null && !directory.exists() && !directory.mkdirs()) {
                 throw new IOException("Cannot create dir " + directory.getAbsolutePath());
             }
+            InputStream in=null;
+            OutputStream out=null;
+            try {
+                 in= new FileInputStream(sourceLocation);
+                 out= new FileOutputStream(targetLocation);
+            }catch (IOException e){
 
-            InputStream in = new FileInputStream(sourceLocation);
-            OutputStream out = new FileOutputStream(targetLocation);
+            }finally {
+                try{
+                    in.close();
+                    out.close();
+                }catch (IOException e){
+
+                }
+            }
             // Copy the bits from InputStream to OutputStream
             byte[] buf = new byte[1024];
             int len;

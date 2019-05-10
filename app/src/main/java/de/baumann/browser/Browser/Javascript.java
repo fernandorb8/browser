@@ -28,8 +28,7 @@ public class Javascript {
             @Override
             public void run() {
                 AssetManager manager = context.getAssets();
-                try {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(manager.open(FILE)));
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(manager.open(FILE)))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         hostsJS.add(line.toLowerCase(locale));

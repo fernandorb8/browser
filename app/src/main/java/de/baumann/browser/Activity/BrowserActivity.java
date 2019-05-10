@@ -352,7 +352,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
         try {
             mahEncryptor = MAHEncryptor.newInstance(Objects.requireNonNull(sp.getString("saved_key", "")));
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.d(TAG, "context");
         }
 
         contentFrame = findViewById(R.id.main_content);
@@ -429,7 +429,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                 bottomSheetDialog.show();
             }
         } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+            Log.d(TAG, "context");
         }
 
         downloadReceiver = new BroadcastReceiver() {
@@ -806,7 +806,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
             title = ninjaWebView.getTitle().trim();
             url = ninjaWebView.getUrl().trim();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.d(TAG, "context");
         }
 
         switch (v.getId()) {
@@ -904,7 +904,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                         initBookmarkList();
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.d(TAG, "context");
                     NinjaToast.show(context, R.string.toast_error);
                 }
                 break;
@@ -1143,8 +1143,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
 
         } catch (Exception e) {
             sp.edit().putBoolean("pdf_create", false).commit();
-            e.printStackTrace();
-        }
+            Log.d(TAG, "context");        }
     }
 
 
@@ -2035,7 +2034,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                                         initBookmarkList();
                                         hideSoftInput(pass_titleET);
                                     } catch (Exception e) {
-                                        e.printStackTrace();
+                                        Log.d(TAG, "context");
                                         NinjaToast.show(context, R.string.toast_error);
                                     }
                                     hideBottomSheetDialog ();
@@ -2193,15 +2192,14 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                                         bottomSheetDialog.setContentView(dialogView);
                                         bottomSheetDialog.show();
                                     } catch (Exception e) {
-                                        e.printStackTrace();
-                                        hideBottomSheetDialog ();
+                                        Log.d(TAG, "context");                                        hideBottomSheetDialog ();
                                         NinjaToast.show(context, R.string.toast_error);
                                     }
                                 }
                             });
 
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            Log.d(TAG, "context");
                             NinjaToast.show(context, R.string.toast_error);
                         }
                     }
@@ -2578,7 +2576,6 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
             NotificationCompat.Action action_UN = new NotificationCompat.Action.Builder(R.drawable.icon_earth, getString(R.string.toast_titleConfirm_pasteUN), copyUN).build();
             NotificationCompat.Action action_PW = new NotificationCompat.Action.Builder(R.drawable.icon_earth, getString(R.string.toast_titleConfirm_pastePW), copyPW).build();
 
-            @SuppressWarnings("deprecation")
             Notification n  = builder
                     .setCategory(Notification.CATEGORY_MESSAGE)
                     .setSmallIcon(R.drawable.ic_notification_ninja)
@@ -2599,7 +2596,7 @@ public class BrowserActivity extends AppCompatActivity implements BrowserControl
                 notificationManager.notify(0, n);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.d(TAG, "context");
             NinjaToast.show(context, R.string.toast_error);
         }
     }
