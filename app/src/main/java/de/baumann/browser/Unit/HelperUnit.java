@@ -56,8 +56,6 @@ public class HelperUnit {
     private static final int REQUEST_CODE_ASK_PERMISSIONS_1 = 1234;
     private static SharedPreferences sp;
 
-    public static Context context;
-
     public static void grantPermissionsStorage(final Activity activity) {
         if (android.os.Build.VERSION.SDK_INT >= 23) {
             int hasWRITE_EXTERNAL_STORAGE = activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -211,7 +209,6 @@ public class HelperUnit {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             s = new SpannableString(Html.fromHtml(text,Html.FROM_HTML_MODE_LEGACY));
         } else {
-            //noinspection deprecation
             s = new SpannableString(Html.fromHtml(text));
         }
         Linkify.addLinks(s, Linkify.WEB_URLS);
